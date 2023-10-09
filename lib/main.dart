@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:maplestory/components/button.dart';
+import 'package:maplestory/monster/unicorn.dart';
 
 void main() {
   runApp(MyApp());
@@ -24,6 +25,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  double uniPosX = 0.5;
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -32,10 +35,21 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(children: [
           Container(
-            height: height * 0.7,
-            width: width,
-            color: Color.fromARGB(255, 54, 244, 184),
-          ),
+              height: height * 0.7,
+              width: width,
+              color: Color.fromARGB(255, 54, 244, 184),
+              child: Stack(
+                children: [
+                  Container(
+                    color: Color.fromARGB(255, 200, 147, 147),
+                    alignment: Alignment(uniPosX, 1),
+                    child: YellowUncorn(
+                      iniSpriteCount: 1,
+                      uniDirection: 'right',
+                    ),
+                  )
+                ],
+              )),
           Container(
             height: 6,
             color: Color.fromARGB(255, 29, 101, 32),
